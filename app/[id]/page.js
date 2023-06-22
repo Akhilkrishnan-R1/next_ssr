@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 export async function generateMetadata({ params: { id } }) {
@@ -33,6 +34,7 @@ export default async function ProductPage({ params: { id } }) {
     const data = await getProductById(id)
     return (
         <div className='p-8'>
+            <img src={data?.thumbnail} width={500} height={500} />
             <p>id: {data?.id}</p>
             <p>Product: {data?.title}</p>
             <p>Brand: {data?.brand}</p>
